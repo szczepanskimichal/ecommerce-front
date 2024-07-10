@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function Header() {
   const inactiveLink =
@@ -8,6 +9,8 @@ export default function Header() {
     "decoration-secondary",
     "decoration-white"
   );
+
+  const [navOpen, setNavOpen] = useState(false);
 
   const routes = useRouter();
   const { pathname } = routes;
