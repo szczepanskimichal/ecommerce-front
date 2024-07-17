@@ -4,9 +4,9 @@ import Header from "./Header";
 export default function Layout({ children }) {
   const [categories, setCategories] = useState([]);
 
-  // function fetchCategories() {
-  //     axios.get("/api/categories")
-  // }
+  function fetchCategories() {
+    axios.get("/api/categories");
+  }
   return (
     <div className="flex flex-col min-h-[100vh] bg-gray-300">
       <Header />
