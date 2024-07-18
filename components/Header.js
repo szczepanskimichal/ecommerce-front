@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { slideIn } from "@/utils/motion";
+import { set } from "mongoose";
 
 export default function Header({ categories }) {
   const inactiveLink =
@@ -27,12 +28,14 @@ export default function Header({ categories }) {
         </Link>
         <nav className="flex gap-10">
           <Link
+            onMouseEnter={() => setIsHovered(false)}
             className={`${pathname === "/" ? activeLink : inactiveLink}`}
             href={"/"}
           >
             Home
           </Link>
           <Link
+            onMouseEnter={() => setIsHovered(false)}
             className={`${
               pathname.includes("/products") ? activeLink : inactiveLink
             }`}
@@ -41,32 +44,40 @@ export default function Header({ categories }) {
             All Products
           </Link>
           <div>
-            <div className={`${inactiveLink} relative cursor-pointer`}>
+            <div
+              onMouseEnter={() => setIsHovered(true)}
+              className={`${inactiveLink} relative cursor-pointer`}
+            >
               Categories
             </div>
           </div>
-          <motion.div
-            variants={slideIn("down", "tween", 0.1, 0.3, true)}
-            initial="hidden"
-            whileInView="show"
-            exit="exit"
-            className="flex justify-center items-center absolute bg-secondary w-screen top-[80px] left-0 z-[-1] border-t border-white"
-          >
-            <div className="w-[70%] flex justify-center p-5 gap-y-5 gap-x-[150px] flex-wrap">
-              {categories?.map((category) => (
-                <Link
-                  className={
-                    pathname.includes("/categories/" + category._id)
-                      ? activeLink
-                      : inactiveLink
-                  }
-                  href={"/categories/" + category._id}
-                >
-                  {category.name}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
+          <AnimatePresence>
+            {isHovered && (
+              <motion.div
+                onMouseLeave={() => setIsHovered(false)}
+                variants={slideIn("down", "tween", 0.1, 0.3, true)}
+                initial="hidden"
+                whileInView="show"
+                exit="exit"
+                className="flex justify-center items-center absolute bg-secondary w-screen top-[80px] left-0 z-[-1] border-t border-white"
+              >
+                <div className="w-[70%] flex justify-center p-5 gap-y-5 gap-x-[150px] flex-wrap">
+                  {categories?.map((category) => (
+                    <Link
+                      className={
+                        pathname.includes("/categories/" + category._id)
+                          ? activeLink
+                          : inactiveLink
+                      }
+                      href={"/categories/" + category._id}
+                    >
+                      {category.name}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </nav>
         <nav className="flex gap-10 items-center">
           <Link
