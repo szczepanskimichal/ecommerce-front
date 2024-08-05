@@ -1,8 +1,15 @@
 import { fadeIn } from "@/utils/motion";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
 
 export default function ProductDiv({ _id, title, images, price, index }) {
+  const { addProduct } = useContext(CartContext);
+  function handleAddToCart() {
+    addProduct(_id);
+  }
+
   return (
     <motion.div
       variants={fadeIn("down", "spring", 0.1 * index, 1)}
@@ -23,7 +30,7 @@ export default function ProductDiv({ _id, title, images, price, index }) {
         </Link>
         <div className="flex gap-3 justify-between items-center mt-3">
           <p className="text-2xl font-bold">${price}</p>
-          <button className="btn-outline">
+          <button className="btn-outline" onClick={handleAddToCart}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
