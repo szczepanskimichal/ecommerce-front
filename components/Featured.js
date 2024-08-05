@@ -15,7 +15,6 @@ export default function Featured({ product }) {
       button.classList.remove("animate");
     }, 1000);
   }
-
   if (!product) {
     return <div>Product not found</div>;
   }
