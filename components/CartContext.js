@@ -1,9 +1,7 @@
 "use client";
 
 import { createContext, useEffect, useState } from "react";
-import "@/styles/globals.css";
-import { Toaster } from "react-hot-toast";
-import { set } from "mongoose";
+import toast from "react-hot-toast";
 
 export const CartContext = createContext({});
 
@@ -26,7 +24,7 @@ export function CartContextProvider({ children }) {
 
   function addProduct(productId) {
     setCartProducts((prev) => [...prev, productId]);
-    toast.success("Item added to cart");
+    toast.success("Item added to cart!");
   }
 
   function removeProduct(productId) {
@@ -37,7 +35,7 @@ export function CartContextProvider({ children }) {
       }
       return prev;
     });
-    toast.error("Item removed from cart");
+    toast.error("Item removed from the cart.");
   }
 
   function clearCart() {
