@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
-import handle from "@/pages/api/products";
 
 export default function Featured({ product }) {
   const { addProduct } = useContext(CartContext);
@@ -18,7 +17,7 @@ export default function Featured({ product }) {
   }
 
   return (
-    <div className="p-10 bg-black text-white flex-grow flex items-center justify-center">
+    <div className="p-10 bg-black flex-grow text-white flex items-center justify-center">
       <div className="flex flex-col md:grid grid-cols-2 lg:grid-cols-3 gap-[40px] mt-[80px]">
         <motion.div
           variants={fadeIn("right", "spring", 0.3, 1)}
@@ -30,7 +29,7 @@ export default function Featured({ product }) {
             <h1>{product.title}</h1>
             <p className="text-justify">{product.description}</p>
             <div className="py-5 flex gap-5">
-              <Link href={`/products/${product._id}`}>
+              <Link href={"/products/" + product._id}>
                 <button className="btn-secondary">Read More</button>
               </Link>
               <button onClick={() => handleAddToCart()} className="btn-primary">
@@ -40,7 +39,7 @@ export default function Featured({ product }) {
                   fill="currentColor"
                   className="size-5"
                 >
-                  <path d="M2.25 2.25a.75.75 0 0 0 0 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 0 0-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 0 0 0-1.5H5.378A2.25 2.25 0 0 1 7.5 15h11.218a.75.75 0 0 0 .674-.421 60.358 60.358 0 0 0 2.96-7.228.75.75 0 0 0-.525-.965A60.864 60.864 0 0 0 5.68 4.509l-.232-.867A1.875 1.875 0 0 0 3.636 2.25H2.25ZM3.75 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 a0 0 1-3 0Z" />
+                  <path d="M2.25 2.25a.75.75 0 0 0 0 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 0 0-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 0 0 0-1.5H5.378A2.25 2.25 0 0 1 7.5 15h11.218a.75.75 0 0 0 .674-.421 60.358 60.358 0 0 0 2.96-7.228.75.75 0 0 0-.525-.965A60.864 60.864 0 0 0 5.68 4.509l-.232-.867A1.875 1.875 0 0 0 3.636 2.25H2.25ZM3.75 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" />
                 </svg>
                 Add to Cart
               </button>
@@ -60,12 +59,12 @@ export default function Featured({ product }) {
           </a>
         </motion.div>
         <motion.div
-          variants={fadeIn("right", "spring", 0.5, 1)}
+          variants={fadeIn("left", "spring", 0.5, 1)}
           initial="hidden"
           whileInView="show"
           className="lg:col-span-2"
         >
-          <img src={product.images[0]} alt={product.title} />
+          <img src={product.images[0]} alt="" />
         </motion.div>
       </div>
     </div>
