@@ -7,11 +7,16 @@ export default function CartPage() {
   const { cartProducts, clearCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
 
-  // useEffect(() => {
-  //     if (cartProducts.length > 0) {
+  useEffect(() => {
+    if (cartProducts.length > 0) {
+      axios.post("api/cart", { ids: cartProducts }).then((response) => {
+        setProducts(response.data);
+      });
+    } else {
+      setProducts([]);
+    }
+  });
 
-  //     }
-  // })
   return (
     <Layout>
       <div className="flex justify-center p-5 sm:p-10">
