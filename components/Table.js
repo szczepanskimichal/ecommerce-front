@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
+import Link from "next/link";
 
-export default function Table() {
+export default function Table({ products, cartProducts }) {
   const { removeProduct, addProduct, clearCart } = useContext(CartContext);
 
   let total = 0;
