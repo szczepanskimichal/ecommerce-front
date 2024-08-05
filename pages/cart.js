@@ -1,6 +1,7 @@
 import { CartContext } from "@/components/CartContext";
 import Layout from "@/components/Layout";
 import Table from "@/components/Table";
+import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 
 export default function CartPage() {
