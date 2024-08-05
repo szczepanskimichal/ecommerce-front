@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
           duration: 3000,
           style: {
             fontSize: "20px",
-            padding: "20px",
+            padding: "8px 16px",
             display: "inline-flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
           },
         }}
       />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </CartContextProvider>
   );
 }
