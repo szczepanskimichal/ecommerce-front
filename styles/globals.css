@@ -84,6 +84,9 @@ table thead tr td {
   @apply text-sm text-gray-400 font-semibold uppercase;
 }
 
-table tr tr {
+table tr td {
   @apply p-3;
+}
+img {
+  @apply max-w-[100%] max-h-[100%];
 }
