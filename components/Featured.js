@@ -16,6 +16,10 @@ export default function Featured({ product }) {
     }, 1000);
   }
 
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
   return (
     <div className="p-10 bg-black flex-grow text-white flex items-center justify-center">
       <div className="flex flex-col md:grid grid-cols-2 lg:grid-cols-3 gap-[40px] mt-[80px]">
