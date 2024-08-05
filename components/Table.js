@@ -19,6 +19,15 @@ export default function Table() {
           <td>Price</td>
         </tr>
       </thead>
+      <tbody>
+        {products.map((product) => (
+          <tr key={product._id} className="border-t-2">
+            <td className="h-[140px] sm:h-[150px] mb-2 rounded-lg flex flex-col justify-center gap-1">
+              <Link href={"/products/" + product._id}></Link>
+            </td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 }
