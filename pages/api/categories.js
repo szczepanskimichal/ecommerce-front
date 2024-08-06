@@ -5,6 +5,7 @@ export default async function handler(req, res) {
   await mongooseConnect();
 
   if (req.method === "GET") {
+    const categories = await Category.find();
     res.json(await Category.find());
   }
 }
