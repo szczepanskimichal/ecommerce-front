@@ -6,7 +6,11 @@ import SettingsIcon from "./icons/SettingsIcon";
 import OrdersIcon from "./icons/OrdersIcon";
 import WishlistIcon from "./icons/WishListIcon";
 
-export default function AccountLayout({ children }) {
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/motion";
+import { use } from "react";
+
+export default function AccountLayout({ children, title }) {
   return (
     <Layout>
       <div className="p-5 w-full h-full">
@@ -25,7 +29,14 @@ export default function AccountLayout({ children }) {
             />
             <AccountLink href="settings" title="Settings" Icon={SettingsIcon} />
           </aside>
-          <div className="p-5 w-full">{children}</div>
+          <div className="p-5 w-full">
+            <h3>{title}</h3>
+            <motion.div
+              variants={fadeIn("down", "spring", 0, 1)}
+              initial="hidden"
+              whileInView="show"
+            ></motion.div>
+          </div>
         </div>
       </div>
     </Layout>

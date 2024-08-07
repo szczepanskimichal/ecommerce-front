@@ -1,5 +1,5 @@
 import AccountLayout from "@/components/AccountLayout";
 
 export default function SettingsPage() {
-  return <AccountLayout title="Settings">Settings</AccountLayout>;
+  return <AccountLayout title="Settings"></AccountLayout>;
 }
