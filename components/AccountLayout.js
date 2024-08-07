@@ -6,7 +6,7 @@ import SettingsIcon from "./icons/SettingsIcon";
 import OrdersIcon from "./icons/OrdersIcon";
 import WishlistIcon from "./icons/WishListIcon";
 
-export default function AccountLayout() {
+export default function AccountLayout({ children }) {
   return (
     <Layout>
       <div className="p-5 w-full h-full">
@@ -25,6 +25,7 @@ export default function AccountLayout() {
             />
             <AccountLink href="settings" title="Settings" Icon={SettingsIcon} />
           </aside>
+          <div className="p-5 w-full">{children}</div>
         </div>
       </div>
     </Layout>
