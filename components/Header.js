@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { slideIn } from "@/utils/motion";
-import CartIcon from "./CartIcon";
+import CartIcon from "./icons/CartIcon";
 import { CartContext } from "./CartContext";
 
 export default function Header({ categories }) {
