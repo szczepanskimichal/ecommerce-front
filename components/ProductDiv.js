@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
-import CartIcon from "./CartIcon";
+import CartIcon from "./icons/CartIcon";
 
 export default function ProductDiv({ _id, title, images, price, index }) {
   const { addProduct } = useContext(CartContext);
