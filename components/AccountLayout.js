@@ -8,7 +8,6 @@ import WishlistIcon from "./icons/WishListIcon";
 
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
-import { use } from "react";
 
 export default function AccountLayout({ children, title }) {
   return (
