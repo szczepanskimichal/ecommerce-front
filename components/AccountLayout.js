@@ -1,6 +1,10 @@
+import { set } from "mongoose";
 import AccountLink from "./AccountLink";
 import ProfileIcon from "./icons/ProfileIcon";
 import Layout from "./Layout";
+import SettingsIcon from "./icons/SettingsIcon";
+import OrdersIcon from "./icons/OrdersIcon";
+import WishlistIcon from "./icons/WishListIcon";
 
 export default function AccountLayout() {
   return (
@@ -13,6 +17,13 @@ export default function AccountLayout() {
               title="Profile information"
               Icon={ProfileIcon}
             />
+            <AccountLink href="wishlist" title="Wishlist" Icon={WishlistIcon} />
+            <AccountLink
+              href="orders"
+              title="Orders history"
+              Icon={OrdersIcon}
+            />
+            <AccountLink href="settings" title="Settings" Icon={SettingsIcon} />
           </aside>
         </div>
       </div>
